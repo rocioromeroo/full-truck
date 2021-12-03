@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_015008) do
+ActiveRecord::Schema.define(version: 2021_12_03_015843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,18 @@ ActiveRecord::Schema.define(version: 2021_12_03_015008) do
     t.bigint "truck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
     t.index ["truck_id"], name: "index_freights_on_truck_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.boolean "status"
+    t.bigint "freight_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["freight_id"], name: "index_reservations_on_freight_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "trucks", force: :cascade do |t|
@@ -50,5 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_015008) do
   end
 
   add_foreign_key "freights", "trucks"
+  add_foreign_key "reservations", "freights"
+  add_foreign_key "reservations", "users"
   add_foreign_key "trucks", "users"
 end

@@ -18,9 +18,9 @@ class FreightsController < ApplicationController
 
   def index
     if params[:query].present?
-      @freight = Freight.where("destination ILIKE ?", "%#{params[:query]}%")
+      @freights = Freight.where("destination ILIKE ?", "%#{params[:query]}%")
     else
-      @freight = Freight.all
+      @freights = Freight.all
     end
   end
 

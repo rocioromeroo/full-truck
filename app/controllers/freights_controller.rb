@@ -29,7 +29,8 @@ class FreightsController < ApplicationController
       :destination,
       :price,
       :departure_time,
-      :estimated_time_arrival
+      :estimated_time_arrival,
+      :description
     )
   end
 end

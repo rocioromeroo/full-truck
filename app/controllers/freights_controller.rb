@@ -1,6 +1,5 @@
 class FreightsController < ApplicationController
   def show
-
   end
 
   def new
@@ -8,6 +7,11 @@ class FreightsController < ApplicationController
   end
 
   def create
+    @trucks = Truck.all
+    @available_trucks = []
+    @trucks.each do |truck|
+      @available_trucks << truck.id
+    end
     @freight = Freight.new(freight_params)
     @freight.save
     redirect_to root_path
@@ -27,7 +31,8 @@ class FreightsController < ApplicationController
       :price,
       :departure_time,
       :estimated_time_arrival,
-      :description
+      :description,
+      :truck_id
     )
   end
 end

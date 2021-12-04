@@ -1,9 +1,6 @@
 class FreightsController < ApplicationController
   def show
-    @freight = Freight.find(params[:id])
-    @review = Review.new
-    @reviews = Review.where(freight_id: params[:id])
-    @reservations = Reservation.where(freight_id: params[:id])
+
   end
 
   def new

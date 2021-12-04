@@ -1,1 +1,13 @@
-<h1>Trucks?</h1>
+<h2 class="">Current Trucks</h2>
+<div class="container">
+  <div class="cards">
+    <% @trucks.each do |truck| %>
+    <div class="">
+      <div class="">
+      Capacity: <%=truck.capacity %> <br>
+      Model: <%= truck.model %> <br>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,17 +1,20 @@
-<h2 class="">Upcoming Shipments</h2>
 <div class="container">
-  <div class="cards">
-    <% @freights.each do |freight| %>
-    <div class="">
-      <div class="">
-      <%= link_to "#{freight.destination}", "freight/#{freight.id}"%>
-      </div>
-      <div class="">
-      Date: <%=freight.date %> <br>
-      Departure: <%= freight.departure %> <br>
-      Duration: <%=freight.destination %> <br>
-      Price: <%= freight.price %> <br>
-      <%= link_to 'Learn more', "freight/#{freight.id}"%>
+  <p class="display-3 text-center ">Upcoming Shipments</p>
+  <div class="container">
+    <div class="card" style="width: 20rem;">
+      <% @freights.each do |freight| %>
+      <div class="card-body">
+        <h5 class="text-center card-title">
+          <%=freight.departure %> to <%=freight.destination %>
+        </h5>
+        <p class="card-text">
+          Date: <%=freight.date %> <br>
+          Duration: <%=freight.estimated_time_arrival %> <br>
+          Price: <%= freight.price %> <br>
+        </p>
+        <a>
+          <%= link_to 'Learn more', "freights/#{freight.id}"%>
+        </a>
       </div>
     </div>
     <% end %>

@@ -1,0 +1,26 @@
+<div class="container">
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Timeline</h5>
+        <p class="card-text">
+          <ul class="timeline">
+            <li class="event" data-date="<%=@freight.departure_time %>">
+              <p><%=@freight.departure%></p>
+            <li class="event" data-date="<%=@freight.estimated_time_arrival %>">
+              <p><%=@freight.destination%></p>
+            </li>
+          </ul>
+        </p>
+        <p class="card-text">
+          <i class="fas fa-star"></i>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

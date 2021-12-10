@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  // opacity: 0.8;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #028ecf;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+h2 {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}

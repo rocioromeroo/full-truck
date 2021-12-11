@@ -9,7 +9,7 @@
         <h5 class="card-title">Timeline</h5>
         <p class="card-text">
           <ul class="timeline">
-            <li class="event" data-date="<%=@freight.departure_time %>">
+            <li class="event" data-date="<%=@freight.departure_time.strftime('%H:%M') %> horas">
               <p><%=@freight.departure%></p>
             <li class="event" data-date="<%=@freight.estimated_time_arrival %>">
               <p><%=@freight.destination%></p>

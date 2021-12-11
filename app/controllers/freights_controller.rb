@@ -23,7 +23,6 @@ class FreightsController < ApplicationController
       @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
       @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
     end
-
   end
 
   private

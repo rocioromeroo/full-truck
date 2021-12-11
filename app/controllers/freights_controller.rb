@@ -13,15 +13,16 @@ class FreightsController < ApplicationController
   def create
     @freight = Freight.new(freight_params)
     @freight.save
-    redirect_to root_path
+    redirect_to freight_path(@freight)
   end
 
   def index
-    @freights = Freight.all
     if params[:destination].present?
       @freights = Freight.where("depature ILIKE ?", "%#{params[:departure]}%")
       @freights = @freights.where("destination ILIKE ?", "%#{params[:destination]}%")
       @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
+    else
+      @freights = Freight.all
     end
   end
 

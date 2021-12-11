@@ -1,5 +1,9 @@
 class FreightsController < ApplicationController
   def show
+    @freight = Freight.find(params[:id])
+    @review = Review.new
+    @reviews = Review.where(freight_id: params[:id])
+    @reservations = Reservation.where(freight_id: params[:id])
   end
 
   def new
@@ -14,6 +18,11 @@ class FreightsController < ApplicationController
 
   def index
     @freights = Freight.all
+    if params[:destination].present?
+      @freights = Freight.where("destination ILIKE ?", "%#{params[:destination]}%")
+      @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
+      @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
+    end
   end
 
   private

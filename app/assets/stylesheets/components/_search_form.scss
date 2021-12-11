@@ -1,0 +1,40 @@
+.search-form-container{
+  background-color: white;
+  border-radius: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 1.5rem;
+
+}
+
+.form-group{
+  padding-right: 20px;
+  .no-border{
+    border: 0;
+    outline: none;
+  }
+}
+
+.search-form-action{
+
+  .center-color-btn{
+    width: 50%;
+    margin: 0 auto;
+    background-color: #3075C6;
+    padding: 10px;
+  }
+
+  .btn-redondo{
+    border-radius: 10px;
+  }
+
+  .btn{
+    color: white;
+    text-align: center;
+    padding: 2px;
+  }
+}
+
+.border-right{
+  border-right: solid grey 1px;
+}

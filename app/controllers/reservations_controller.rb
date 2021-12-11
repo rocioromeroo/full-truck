@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new
-    @freight_id = Freight.find(params[:freight_id])
+    @freight = Freight.find(params[:freight_id])
     @user = current_user
     @reservation.freight = @freight
     @reservation.user = @user
@@ -17,10 +17,10 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-    @trip_id = []
+    @freight_id = []
     @reservations.each do |reservation|
-      @trip_id << reservation.trip_id
+      @freight_id << reservation.freight_id
     end
-    @reservations = Trip.select([:destination]).where(id: @trip_id)[0].destination
+    @reservations = Freight.select([:destination]).where(id: @freight_id)[0].destination
   end
 end

@@ -1,1 +1,161 @@
-// Specific CSS for your home-page
+.video-container {
+  width: 100%;
+  height: 600px;
+  background-color: beige;
+  overflow: hidden;
+  position: relative;
+
+  video {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1698a1;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+
+  .video-content {
+    z-index: 2;
+    position: relative;
+
+    h2 {
+      font-weight: bold;
+      font-family: "Nunito", sans-serif;
+      text-align: center;
+      margin-top: 150px;
+      color: #fff;
+    }
+  }
+
+  .search-form {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.container {
+  border-radius: 12px;
+}
+
+.latest {
+  color: #3075C6;
+  display: flex;
+  justify-content: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+}
+
+.card-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+.card-destination {
+  height: 250px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  border-radius: 6px;
+  transition: transform 330ms ease-in-out;
+}
+
+.card-destination a {
+  color: white;
+}
+
+.card-destination a:hover {
+  text-decoration: none;
+}
+
+.card-destination:hover {
+  transform: scale(1.05)
+}
+
+.ba {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://cdn.vox-cdn.com/thumbor/WEfQUw-9v5ti4MQ_fi84t7Vd6OM=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/18980526/TuSimple_Self_Drving_Truck_4_copy.jpg");
+  background-size: cover;
+}
+
+.freight-info {
+
+  p {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  }
+
+  .freight-title {
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+
+  .freight-description {
+    color: #bdbdbd;
+    font-size: 1rem;
+  }
+
+  .loc-pri {
+    color: #8d8d8d;
+  }
+
+  .pricing {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .fa-map-marker-alt {
+    color: #f3722c;
+    font-size: 1.1rem;
+  }
+
+  .fa-money-bill {
+    color: #90be6d;
+    font-size: 1.2rem;
+  }
+
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

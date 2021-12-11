@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+          <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Timeline</h5>
+          <p class="card-text">
+            <ul class="timeline">
+              <li class="event" data-date="<%=@freight.departure_time.strftime('%H:%M') %> hours">
+                <p><%=@freight.departure%></p>
+              <li class="event" data-date="<%=@freight.estimated_time_arrival %>">
+                <p><%=@freight.destination%></p>
+              </li>
+            </ul>
+          </p>
+          <p class="card-text">
+            <i class="fas fa-star"></i>
+            <img src="https://i.pravatar.cc/300" class="card-trip-user avatar-bordered" />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col">
+        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col">
+        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col">
+        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <%  if @reservations.present? %>
+  <h2 class="my-5" style="text-align: center;">Freight booked</h2>
+  <% else %>
+  <button type="button" class="btn btn-outline-secondary my-5">
+    <%= link_to "Book now", freight_reservations_path(@freight.id), method: :post %>
+  <% end %>
+  </button>
+</div>
+<div class="text-center">
+  <% if @review.blank? %>
+    <p class= "my-5">Be the first to leave a review for <%= @freight.destination %></p>
+  <% end %>
+  <div class="my-5">
+    <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
+      <%= f.input :stars, as: :radio_buttons, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
+      <%= f.input :comment, as: :text %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

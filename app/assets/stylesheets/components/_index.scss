@@ -2,12 +2,10 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
 
-body{
-  font-family: 'poppins', sans-serif;
-  background-color: rgb(209, 211, 211);
-}
+
 .content{
   margin: 8%;
   background-color: #fff;
@@ -48,3 +46,6 @@ body{
 .btn-class:hover{
   background-color: #9d9d9d;
 }
+=======
+@import "timeline";
+>>>>>>> origin

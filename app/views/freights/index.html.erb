@@ -1,0 +1,22 @@
+<p class="display-3 text-center ">Upcoming Shipments</p>
+<div class="container">
+  <div class="card-deck">
+    <% @freights.each do |freight| %>
+      <div class="card mb-3" style="min-width: 18rem;">
+        <div class="card-body">
+          <h5 class="text-center  card-title">
+          <%=freight.departure %> to <%=freight.destination %>
+          </h5>
+          <p class="card-text">
+            Date: <%=freight.date %> <br>
+            Duration: <%=freight.estimated_time_arrival %> <br>
+            Price: <%= freight.price %> <br>
+          </p>
+          <a>
+            <%= link_to 'Learn more', "freights/#{freight.id}"%>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

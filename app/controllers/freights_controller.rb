@@ -17,12 +17,15 @@ class FreightsController < ApplicationController
   end
 
   def index
-    if params[:destination].present?
-      @freights = Freight.where("depature ILIKE ?", "%#{params[:departure]}%")
-      @freights = @freights.where("destination ILIKE ?", "%#{params[:destination]}%")
-      @freights = @freights.where("date ILIKE ?", "%#{params[:date]}%") if params[:date].present?
-    else
-      @freights = Freight.all
+    @freights = Freight.all
+    if params.dig(:freight, :destination).present?
+      @freights = @freights.where("destination ILIKE ?", "%#{params[:freight][:destination]}%")
+    end
+    if params.dig(:freight, :departure).present?
+      @freights = @freights.where("departure ILIKE ?", "%#{params[:freight][:departure]}%")
+    end
+    if params.dig(:freight, :date).present?
+      @freights = @freights.where(date: params[:freight][:date])
     end
   end
 

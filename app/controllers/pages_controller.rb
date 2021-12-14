@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @freights = Freight.all
   end
 
   def about

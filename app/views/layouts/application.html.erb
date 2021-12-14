@@ -2,42 +2,33 @@
 <html>
   <head>
     <link rel="shortcut icon" type="image/png" href="<%= image_path('fulltruck') %>"/>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-
-<!-- HTML Meta Tags -->
-<title>Full Truck | Delivering safely... on time!</title>
-<meta name="description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Facebook Meta Tags -->
-<meta property="og:url" content="http://www.fulltruck.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Full Truck | Delivering safely... on time!">
-<meta property="og:description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
-<meta property="og:image" content="<%= image_url('og-fulltrack-cover.jpg') %>">
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="fulltruck.co">
-<meta property="twitter:url" content="http://www.fulltruck.com/">
-<meta name="twitter:title" content="Full Truck | Delivering safely... on time!">
-<meta name="twitter:description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
-<meta name="twitter:image" content="<%= image_url('og-fulltrack-cover.jpg') %>">
+    <!-- HTML Meta Tags -->
+    <title>Full Truck | Delivering safely... on time!</title>
+    <meta name="description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="http://www.fulltruck.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Full Truck | Delivering safely... on time!">
+    <meta property="og:description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
+    <meta property="og:image" content="<%= image_url('og-fulltrack-cover.jpg') %>">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="fulltruck.co">
+    <meta property="twitter:url" content="http://www.fulltruck.com/">
+    <meta name="twitter:title" content="Full Truck | Delivering safely... on time!">
+    <meta name="twitter:description" content="The best digital freight network. We connect shippers to carriers to move millions of products every year.">
+    <meta name="twitter:image" content="<%= image_url('og-fulltrack-cover.jpg') %>">
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-
     <%= yield %>
   </body>
 </html>

@@ -5,34 +5,97 @@
     <h2>TAKE CONTROL </br> OF YOUR FREIGHT</h2>
   </div>
   <div class="search-form">
-    <div class="d-none d-xl-block">
-      <%= render 'shared/search_form' %>
-    </div>
-    <div class="mobile-search-form d-block d-xl-none">
-      <%= render 'shared/search_form_mobile' %>
-    </div>
+    <%= render 'shared/search_form' %>
   </div>
 </div>
 
-<h2 class="latest my-5">Latest freights</h2>
+<div class="container latest-freigths my-5 d-flex justify-content-center align-items-center">
+
+    <h2 class="latest">Latest Freights</h2>
+
+</div>
+
 
 <div class="container bg-light">
   <div class="cards p-4">
-    <% @freights.each do |freight| %>
-      <%= link_to "freights/#{freight.id}" do %>
-      <div class="card-container shadow my-3">
-        <div class="card-destination ba"></div>
-        <div class="freight-info">
-          <p class="freight-title py-2"> <%= freight.departure %> - <%= freight.destination %></p>
-          <p class="freight-description py-2"> <%= freight.description %> </p>
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
         <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
-          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i> <%= freight.departure %> </p>
-          <p class="pricing"><i class="fas fa-money-bill pr-2"></i> <%= freight.price %> </p>
-        </div>
-        <div class="d-flex justify-content-center mt-3">
-          <button class="btn btn-primary rounded-4">Más información</button>
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
         </div>
       </div>
+    </div>
+
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba shadow">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container shadow my-3">
+      <div class="card-destination ba">
+      </div>
+      <div class="freight-info">
+        <p class="freight-title py-2">Origin and Destination</p>
+        <p class="freight-description py-2">I'm traveling from blablabla... This is where the description goes blabla lorem ipsum, something else</p>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i>Santiago, Chile</p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i>$100</p>
+        </div>
+      </div>
+    </div>
+
+
   </div>
-      <% end %>
-  <% end %>
+</div>

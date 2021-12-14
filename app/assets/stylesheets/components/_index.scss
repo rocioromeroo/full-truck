@@ -2,4 +2,46 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "timeline";
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
+
+
+.content{
+  margin: 8%;
+  background-color: #fff;
+  padding: 4rem 1 rem 4 rem 1rem;
+  box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+}
+.signin-text{
+  font-style: normal;
+  font-weight: 600;
+}
+.form-control{
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-color: black;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  padding: 0px;
+  color: #495057;
+  height: auto;
+  border-radius: 0;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+.form-control:focus{
+  color: #495057;
+  background-color: #fff;
+  border-color: #fff;
+  outline: 0;
+  box-shadow: none;
+}
+.btn-class{
+  border-color: rgb(131, 129, 129);
+  color: rgb(97, 97, 97);
+}
+.btn-class:hover{
+  background-color: #9d9d9d;
+}

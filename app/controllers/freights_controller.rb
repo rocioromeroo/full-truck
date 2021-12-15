@@ -40,7 +40,9 @@ class FreightsController < ApplicationController
       :departure_time,
       :estimated_time_arrival,
       :description,
-      :truck_id
+      :truck_id,
+      :cover_image,
+      gallery_images: []
     )
   end
 end

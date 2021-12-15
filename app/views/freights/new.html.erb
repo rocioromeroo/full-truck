@@ -9,11 +9,15 @@
           <div class="mt-3">
             <%= simple_form_for @freight do |f| %>
               <%= f.input :date %>
+              <%= f.label :cover_image %>
+              <%= f.file_field :cover_image %>
               <%= f.input :departure %>
               <%= f.input :destination %>
               <%= f.input :price %>
               <%= f.input :departure_time %>
               <%= f.input :estimated_time_arrival %>
+              <%= f.label :gallery_images %>
+              <%= f.file_field :gallery_images, multiple: true %>
               <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
               <div class="col text-center">
                 <%= f.button :submit, class: "btn btn-primary" %>

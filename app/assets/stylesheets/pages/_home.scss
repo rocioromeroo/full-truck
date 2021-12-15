@@ -45,10 +45,26 @@
   border-radius: 12px;
 }
 
+.latest-freigths {
+  height: 250px;
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      180deg,
+      rgba(2,0,36,.5) 0%,
+      rgba(9,9,121,.5) 35%,
+      rgba(0,212,255,.5) 100%
+      ),
+      url("https://www.shell.com.au/motorists/truck-atlas/_jcr_content/pagePromo/image.img.960.jpeg/1528879489475/truckatlas.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 .latest {
-  color: #3075C6;
-  display: flex;
-  justify-content: center;
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 .cards {

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card mb-3">
+  <div class="card mb-3 coo">
     <div class="row g-0">
       <div class="col-md-4">
 <%# Displays a placeholder 'cover image' if a user doesn't upload one %>
@@ -43,6 +43,11 @@
         <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
     </div>
   </div>
+
+  <div class="cards p-4">
+    <% @freight.gallery_images.each do |image| %>
+    <%= image_tag image %>
+    <% end %>
 </div>
 <div class="text-center">
   <%  if @reservations.present? %>

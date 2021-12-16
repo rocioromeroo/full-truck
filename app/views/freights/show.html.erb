@@ -2,8 +2,13 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
-          <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-          <%= image_tag @freight.cover_image.variant(resize: "400x400") %>
+
+          <% if @freight.cover_image.present? %>
+            <%= image_tag @freight.cover_image.variant(resize: "400x400") %>
+          <% else %>
+            <%= image_tag 'fulltruck.png'.variant(resize: "400x400") %>
+          <% end %>
+
       </div>
       <div class="col-md-8">
         <div class="card-body">

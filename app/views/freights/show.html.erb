@@ -1,8 +1,14 @@
 <div class="container">
-  <div class="card mb-3">
+  <div class="card mb-3 coo">
     <div class="row g-0">
       <div class="col-md-4">
-          <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+<%# Displays a placeholder 'cover image' if a user doesn't upload one %>
+          <% if @freight.cover_image.present? %>
+            <%= image_tag @freight.cover_image.variant(resize: "500x300") %>
+          <% else %>
+            <%= image_tag 'truck-cover.jpg' %>
+          <% end %>
+
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -17,18 +23,17 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-center">
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-  </div>
+
+
+  <div class="cards p-4">
+    <% @freight.gallery_images.each do |image| %>
+      <div class="gallery-image-container">
+        <%= image_tag image, class: "gallery-image" %>
+      </div>
+    <% end %>
 </div>
+
+
 <div class="text-center">
   <%  if @reservations.present? %>
   <h2 class="my-5" style="text-align: center;">Freight booked</h2>

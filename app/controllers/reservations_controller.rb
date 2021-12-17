@@ -10,9 +10,12 @@ class ReservationsController < ApplicationController
     @user = current_user
     @reservation.freight = @freight
     @reservation.user = @user
-    @reservation.save!
-    flash[:alert] = "Reserva realizada correctamente!"
-    redirect_to freight_path(@freight)
+    if @reservation.save!
+      flash[:alert] = "Reserva realizada correctamente!"
+      redirect_to freight_path(@freight)
+    else
+      redirect_to root_path
+    end
   end
 
   def index

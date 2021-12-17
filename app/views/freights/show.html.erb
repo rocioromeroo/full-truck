@@ -47,7 +47,7 @@
   <% end %>
   <div class="my-5">
     <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
-      <%= f.input :stars, as: :radio_buttons, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
+      <%= f.input :stars, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
       <%= f.input :comment, as: :text %>
       <%= f.button :submit %>
     <% end %>

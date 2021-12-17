@@ -23,24 +23,22 @@
 <div class="container bg-light">
   <div class="cards p-4">
     <% @freights.each do |freight| %>
-    <%= link_to "freights/#{freight.id}" do %>
-    <div class="card-container shadow my-3">
-    <div class="card-destination ba"></div>
-    <div class="freight-info">
-      <p class="freight-title py-2"> <%= freight.departure %> - <%= freight.destination %></p>
-      <p class="freight-description py-2"> <%= freight.description %> </p>
-      <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
-        <p class="location"><i class="fas fa-map-marker-alt pr-2"></i> <%= freight.departure %> </p>
-        <p class="pricing"><i class="fas fa-money-bill pr-2"></i> <%= freight.price %> </p>
+      <%= link_to "freights/#{freight.id}" do %>
+      <div class="card-container shadow my-3">
+        <div class="card-destination ba"></div>
+        <div class="freight-info">
+          <p class="freight-title py-2"> <%= freight.departure %> - <%= freight.destination %></p>
+          <p class="freight-description py-2"> <%= freight.description %> </p>
+        </div>
+        <div class="loc-pri d-flex justify-content-between align-items-center pt-2">
+          <p class="location"><i class="fas fa-map-marker-alt pr-2"></i> <%= freight.departure %> </p>
+          <p class="pricing"><i class="fas fa-money-bill pr-2"></i> <%= freight.price %> </p>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button class="btn btn-primary rounded-4">Más información</button>
+        </div>
       </div>
-    <div class="d-flex justify-content-center mt-3">
-      <button class="btn btn-primary rounded-4">Más información</button>
-    </div>
+      <% end %>
+    <% end %>
   </div>
-</div>
-
-<% end %>
-<% end %>
-</div>
-</div>
 </div>

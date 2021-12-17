@@ -32,23 +32,17 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-center">
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col">
-        <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
-    </div>
-  </div>
+
 
   <div class="cards p-4">
     <% @freight.gallery_images.each do |image| %>
-    <%= image_tag image %>
+      <div class="gallery-image-container">
+        <%= image_tag image, class: "gallery-image" %>
+      </div>
     <% end %>
 </div>
+
+
 <div class="text-center">
   <%  if @reservations.present? %>
   <h2 class="my-5" style="text-align: center;">Freight booked</h2>

@@ -49,7 +49,12 @@
     <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
       <%= f.input :stars, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
       <%= f.input :comment, as: :text %>
-      <%= f.button :submit %>
+      <%= f.submit %>
     <% end %>
+  </div>
+  <div class="my-5">
+    <% @reviews.each do |review| %>
+          <p class="pt-3" id="review-<%= review.id %>">- <%= review.comment %></p>
+        <% end %>
   </div>
 </div>

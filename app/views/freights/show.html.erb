@@ -2,13 +2,12 @@
   <div class="card mb-3 coo">
     <div class="row g-0">
       <div class="col-md-4">
-<%# Displays a placeholder 'cover image' if a user doesn't upload one %>
-          <% if @freight.cover_image.present? %>
-            <%= image_tag @freight.cover_image.variant(resize: "500x300") %>
-          <% else %>
-            <%= image_tag 'truck-cover.jpg' %>
-          <% end %>
-
+      <%# Displays a placeholder 'cover image' if a user doesn't upload one %>
+        <% if @freight.cover_image.present? %>
+          <%= image_tag @freight.cover_image.variant(resize: "500x300") %>
+        <% else %>
+          <%= image_tag 'truck-cover.jpg' %>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -23,38 +22,123 @@
       </div>
     </div>
   </div>
-
-
   <div class="cards p-4">
     <% @freight.gallery_images.each do |image| %>
       <div class="gallery-image-container">
         <%= image_tag image, class: "gallery-image" %>
       </div>
     <% end %>
+  </div>
 </div>
 
-
-<div class="text-center">
-  <%  if @reservations.present? %>
-  <h2 class="my-5" style="text-align: center;">Freight booked</h2>
-  <% else %>
-    <%= button_to "Book now", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary my-5" %>
-  <% end %>
-</div>
-<div class="text-center">
-  <% if @review.blank? %>
-    <p class= "my-5">Be the first to leave a review for <%= @freight.destination %></p>
-  <% end %>
-  <div class="my-5">
-    <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
-      <%= f.input :stars, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
-      <%= f.input :comment, as: :text %>
-      <%= f.submit %>
+<!-- Creates a reservation. If a reservation exist for current user a message will appear in-->
+<div class="container">
+  <div class="text-center">
+    <%  if @reservations.present? %>
+    <h2 class="my-5" style="text-align: center;">Freight booked</h2>
+    <% else %>
+      <%= button_to "Book now", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary my-5" %>
     <% end %>
   </div>
-  <div class="my-5">
-    <% @reviews.each do |review| %>
-          <p class="pt-3" id="review-<%= review.id %>">- <%= review.comment %></p>
-        <% end %>
+</div>
+
+<!-- Create a review and list previous reviews -->
+<div class="container">
+  <div class="text-center">
+  <!-- Validates if there is a previous review and form for new review -->
+    <% if @review.blank? %>
+      <p class= "my-5">Be the first to leave a review for <%= @freight.destination %></p>
+    <% end %>
+    <div class="my-5">
+    <!-- Form to create a new review -->
+      <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
+        <%= f.input :stars, collection: [['1', 'Very Unsatisfied'], ['2', 'Unsatisfied'], ['3', 'Neutral'], ['4', 'Satisfied'], ['5', 'Very Satisfied']], label_method: :second, value_method: :first %>
+        <%= f.input :comment, as: :text %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
+</div>
+
+  <!-- List previous reviews -->
+<div class="container text-center">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-8">
+      <!-- Review card -->
+      <% @reviews.each do |review| %>
+          <div class="card my-1 border-0 shadow rounded">
+            <div class="card-body">
+              <!-- Review header -->
+              <div class="d-flex flex-start text-start">
+                <!-- User avatar -->
+                <img
+                class="rounded-circle shadow-1-strong me-3"
+                src="https://i.pravatar.cc/300"
+                alt="avatar"
+                width="60"
+                height="60"
+                />
+                <!-- User name and date of review -->
+                <div class="ml-5" style="text-align: left;">
+                  <h6 class="fw-bold text-primary mb-1">Lily Coleman </h6>
+                      <!-- Stars -->
+                  <h6 style="color: #F9F10C;">
+                    <% review.stars.times do |f|%>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                  </h6>
+                  <p class="text-muted small mb-0">
+                    Shared publicly - <%= review.created_at.strftime("%d %B %Y") %>
+                  </p>
+                </div>
+              </div>
+              <!-- Review user´s comments -->
+              <p class="mt-3 mb-4 pb-2 shadow-1-strong">
+                <%= review.comment %>
+              </p>
+              <!-- Like, comments and share options -->
+              <div class="small d-flex">
+                <a href="#!" class="d-flex align-items-center ml-3">
+                  <i class="far fa-thumbs-up mx-2"></i>
+                  <p class="mb-0">Like</p>
+                </a>
+                <a href="#!" class="d-flex align-items-center ml-3">
+                  <i class="far fa-comment-dots mx-2"></i>
+                  <p class="mb-0">Comment</p>
+                </a>
+                <a href="#!" class="d-flex align-items-center ml-3">
+                  <i class="fas fa-share mx-2"></i>
+                  <p class="mb-0">Share</p>
+                </a>
+              </div>
+            </div>
+            <!--
+            <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+              <div class="d-flex flex-start w-100">
+                <img
+                  class="rounded-circle shadow-1-strong mx-3"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg"
+                  alt="avatar"
+                  width="40"
+                  height="40"
+                />
+                <div class="form-outline w-100">
+                  <textarea
+                    class="form-control"
+                    id="textAreaExample"
+                    rows="4"
+                    style="background: #fff;"
+                  ></textarea>
+                  <label class="form-label" for="textAreaExample">Message</label>
+                </div>
+              </div>
+              <div class="float-end mt-2 pt-1">
+                <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+              </div>
+            </div>
+            -->
+          </div>
+      <% end %>
+    </div>
 </div>

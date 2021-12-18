@@ -1,3 +1,128 @@
+.date-fr {
+  color: #fff;
+  font-size: 1.2rem;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+.col-left {
+  width: 100%;
+  height: auto;
+
+  .cover-image {
+  object-fit: cover;
+  }
+
+}
+
+.col-right {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    .container-timeline{
+      width:350px;
+      height:auto;
+      display:flex;
+      margin-top: 80px;
+
+      .lines{
+        margin-left:40px;
+
+        .dot{
+          width:14px;
+          height:14px;
+          background: #3075C6;
+          border-radius:7px;
+        }
+
+        .line{
+          height:80px;
+          width:2px;
+          background: #3075C6;
+          margin-left:5.5px;
+        }
+      }
+      .timeline-cards{
+        margin-left:12px;
+        transform:translateY(-50px);
+
+        .timeline-card{
+          width:249px;
+          height:93px;
+          padding-top:25px;
+          background: #FFFFFF;
+          box-shadow:0 2px 2px 0  #eeeeee40;
+          border-radius: 10px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          margin-bottom:10px;
+          padding: 20px;
+        }
+
+        .departure-time {
+          color: lightgray;
+          font-size: 1rem;
+          margin-bottom: 0;
+        }
+
+        .origin {
+          color: #001761;
+          font-size: 1.4rem;
+        }
+
+        .arrival-time {
+          color: lightgray;
+          font-size: 1rem;
+          margin-bottom: 0;
+        }
+
+        .destination {
+          color: #001761;
+          font-size: 1.4rem;
+        }
+      }
+    }
+}
+
+.freight-info {
+  height: auto;
+  padding: 50px;
+
+  h2 {
+    color: #001761;
+  }
+}
+
+.driver-info {
+  height: inherit;
+  padding: 50px;
+
+  h2 {
+    color: #001761;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .span-info {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+
+.slider {
+  padding: 25px;
+}
+
+
+
+
+
+
 .gallery-image-container {
   width: 300px;
 }

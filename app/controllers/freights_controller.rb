@@ -8,6 +8,7 @@ class FreightsController < ApplicationController
 
   def new
     @freight = Freight.new
+    @freight.build_truck
   end
 
   def create
@@ -42,7 +43,8 @@ class FreightsController < ApplicationController
       :description,
       :truck_id,
       :cover_image,
-      gallery_images: []
+      gallery_images: [],
+      truck_attributes: [:capacity]
     )
   end
 end

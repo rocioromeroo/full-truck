@@ -71,7 +71,11 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= image_tag @freight.cover_image, class:"d-block w-100"%>
+          <% if @freight.cover_image.present? %>
+            <%= image_tag @freight.cover_image, class: "d-block w-100" %>
+          <% else %>
+            <%= image_tag 'slider-placeholder.jpg', class: "d-block w-100"%>
+      <% end %>
         </div>
       <% @freight.gallery_images.each do |image| %>
         <div class="carousel-item">

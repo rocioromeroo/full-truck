@@ -1,60 +1,86 @@
 <div class="container">
-  <div class="card mb-3 coo">
-    <div class="row g-0">
-      <div class="col-md-4">
-<%# Displays a placeholder 'cover image' if a user doesn't upload one %>
-          <% if @freight.cover_image.present? %>
-            <%= image_tag @freight.cover_image.variant(resize: "500x300") %>
-          <% else %>
-            <%= image_tag 'truck-cover.jpg' %>
-          <% end %>
-
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Timeline</h5>
-
-
-          <p class="card-text">
-            <i class="fas fa-star"></i>
-            <img src="https://i.pravatar.cc/300" class="card-trip-user avatar-bordered" />
-          </p>
-        </div>
+  <div class="row">
+    <div class="container latest-freigths my-5 d-flex justify-content-center align-items-center flex-column">
+      <h2 class="latest"> <%= @freight.departure %> - <%= @freight.destination %> </h2>
+      <div>
+        <p class="date-fr"> Date: <%= @freight.date %> </p>
       </div>
     </div>
   </div>
 
+  <div class="row card-deck my-3">
+    <div class="col col-left card d-flex justify-content-center p-3">
+      <%# Displays a placeholder 'cover image' if a user doesn't upload one %>
+      <% if @freight.cover_image.present? %>
+        <%= image_tag @freight.cover_image, class: "cover-image" %>
+      <% else %>
+        <%= image_tag 'truck-cover.jpg' %>
+      <% end %>
+    </div>
 
-  <div class="cards p-4">
-    <% @freight.gallery_images.each do |image| %>
-      <div class="gallery-image-container">
-        <%= image_tag image, class: "gallery-image" %>
-      </div>
-    <% end %>
-</div>
+    <div class="col col-right card">
+          <div class="container-timeline">
+            <div class="lines">
+              <div class="dot"></div>
+              <div class="line"></div>
+              <div class="dot"></div>
+            </div>
 
-
-<div class="text-center">
-  <%  if @reservations.present? %>
-  <h2 class="my-5" style="text-align: center;">Freight booked</h2>
-  <% else %>
-    <%= button_to "Book now", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary my-5" %>
-  <% end %>
-</div>
-<div class="text-center">
-  <% if @review.blank? %>
-    <p class= "my-5">Be the first to leave a review for <%= @freight.destination %></p>
-  <% end %>
-  <div class="my-5">
-    <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
-      <%= f.input :stars, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
-      <%= f.input :comment, as: :text %>
-      <%= f.submit %>
-    <% end %>
+            <div class="timeline-cards">
+              <div class="timeline-card">
+                <h4 class="departure-time"> <%= @freight.departure_time.strftime("%k:%M") %> </h4>
+                <p class="origin"> <%= @freight.departure %> </p>
+              </div>
+              <div class="timeline-card mid">
+                <h4 class="arrival-time"> <%= @freight.estimated_time_arrival %> </h4>
+                <p class="destination"> <%= @freight.destination %> </p>
+              </div>
+            </div>
+          </div>
+    </div>
   </div>
-  <div class="my-5">
-    <% @reviews.each do |review| %>
-          <p class="pt-3" id="review-<%= review.id %>">- <%= review.comment %></p>
-        <% end %>
+
+  <div class="row card-deck my-3">
+    <div class="col freight-info card">
+      <h2>About this freight</h2>
+      <% if @freight.description.present? %>
+        <p> <%= @freight.description %> </p>
+      <% else %>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus deserunt veritatis reiciendis exercitationem blanditiis culpa, quo ducimus fugiat est soluta explicabo distinctio consequuntur assumenda, expedita maiores tempora excepturi adipisci earum?</p>
+      <% end %>
+
+
+    </div>
+
+    <div class="col driver-info card">
+      <h2>Driver Info</h2>
+      <p>Name</p>
+      <p>Rating</p>
+      <p>Truck</p>
+    </div>
   </div>
+
+  <div class="row slider">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag @freight.cover_image, class:"d-block w-100"%>
+        </div>
+      <% @freight.gallery_images.each do |image| %>
+        <div class="carousel-item">
+          <%= image_tag image, class: "d-block w-100" %>
+        </div>
+      <% end %>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+    </div>
+  </div>
+
+</div>
 </div>

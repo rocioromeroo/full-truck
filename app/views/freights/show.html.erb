@@ -14,7 +14,7 @@
       <% if @freight.cover_image.present? %>
         <%= image_tag @freight.cover_image, class: "cover-image" %>
       <% else %>
-        <%= image_tag 'truck-cover.jpg' %>
+        <%= image_tag 'truck-cover.jpg', class: "cover-image" %>
       <% end %>
     </div>
 

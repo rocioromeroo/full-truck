@@ -1,6 +1,7 @@
 .date-fr {
   color: #fff;
   font-size: 1.2rem;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
 
 .col-left {
@@ -32,15 +33,15 @@
         .dot{
           width:14px;
           height:14px;
-          background: #D1D6E6;
+          background: #3075C6;
           border-radius:7px;
         }
 
         .line{
           height:80px;
           width:2px;
-          background: #D1D6E6;
-          margin-left:5.3px;
+          background: #3075C6;
+          margin-left:5.5px;
         }
       }
       .timeline-cards{
@@ -99,6 +100,17 @@
 
   h2 {
     color: #001761;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .span-info {
+    font-weight: bold;
+    font-size: 1.1rem;
   }
 }
 

@@ -54,9 +54,16 @@
 
     <div class="col driver-info card">
       <h2>Driver Info</h2>
-      <p>Name</p>
-      <p>Rating</p>
-      <p>Truck</p>
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag 'profile.png', class:"profile-pic"%>
+        </div>
+        <div class="col-8">
+          <p><span class="span-info">Name:</span> John</p>
+          <p><span class="span-info">Rating:</span> stars</p>
+          <p><span class="span-info">Phone Number:</span> 555 555 5555</p>
+        </div>
+      </div>
     </div>
   </div>
 

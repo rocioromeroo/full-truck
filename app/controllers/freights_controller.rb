@@ -43,8 +43,8 @@ class FreightsController < ApplicationController
       :description,
       :truck_id,
       :cover_image,
-      gallery_images: [],
-      truck_attributes: [:capacity]
+      gallery_images: []
+      # truck_attributes: [:capacity]
     )
   end
 end

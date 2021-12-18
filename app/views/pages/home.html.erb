@@ -25,7 +25,13 @@
     <% @freights.each do |freight| %>
       <%= link_to "freights/#{freight.id}" do %>
       <div class="card-container shadow my-3">
-        <div class="card-destination ba"></div>
+        <div class="card-destination ba">
+          <% if freight.cover_image.present? %>
+            <%= image_tag freight.cover_image, class:"home-cover-image" %>
+          <% else %>
+            <%= image_tag 'slider-placeholder.jpg', class:"home-cover-image" %>
+          <% end %>
+        </div>
         <div class="freight-info">
           <p class="freight-title py-2"> <%= freight.departure %> - <%= freight.destination %></p>
           <p class="freight-description py-2"> <%= freight.description %> </p>

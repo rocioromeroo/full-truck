@@ -1,4 +1,7 @@
 class FreightsController < ApplicationController
+
+  before_action :authenticate_user!, only: :new
+
   def show
     @freight = Freight.find(params[:id])
     @review = Review.new

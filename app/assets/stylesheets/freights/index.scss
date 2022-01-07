@@ -1,0 +1,35 @@
+.index-card {
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.index-cover-image {
+  border-radius: 10px;
+  width: 95%;
+}
+
+.card-title-index {
+  color: #3075c6;
+  font-weight: bold;
+}
+
+.freight-description-index {
+  color: gray;
+}
+
+.index-icons {
+  font-size: 1.1rem;
+  color: #183e69;
+}
+
+.index-freight-info-divider {
+  color: #b9b9b9;
+}
+
+.button-index {
+  border-radius: 5px;
+
+  a {
+    color: #fff;
+  }
+}

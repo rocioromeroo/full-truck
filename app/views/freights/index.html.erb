@@ -1,20 +1,38 @@
-<p class="display-3 text-center ">Upcoming Shipments</p>
-<div class="container">
-  <div class="card-deck">
+<div class="container latest-freigths my-5 d-flex justify-content-center align-items-center">
+    <h2 class="latest">Upcoming Shipments</h2>
+</div>
+
+
+<div class="container mb-4">
+  <div class="card-deck py-3">
     <% @freights.each do |freight| %>
-      <div class="card mb-3" style="min-width: 18rem;">
+      <div class="card mb-3 index-card" style="min-width: 18rem;">
+          <div class="text-center pt-2">
+            <% if freight.cover_image.present? %>
+              <%= image_tag freight.cover_image, class:"home-cover-image index-cover-image" %>
+            <% else %>
+              <%= image_tag 'slider-placeholder.jpg', class:"home-cover-image index-cover-image" %>
+            <% end %>
+          </div>
         <div class="card-body">
-          <h5 class="text-center  card-title">
-          <%=freight.departure %> to <%=freight.destination %>
+          <h5 class="card-title-index">
+          <%= freight.departure %> to <%= freight.destination %>
           </h5>
           <p class="card-text">
-            Date: <%=freight.date %> <br>
-            Duration: <%=freight.estimated_time_arrival %> <br>
-            Price: <%= freight.price %> <br>
+            <p class="freight-description-index"> <%= freight.description %> </p>
+            <div class="index-freight-info d-flex justify-content-between align-items-center">
+              <i class="fas fa-calendar-check index-icons"></i> <%= freight.date.strftime("%B %d") %> <span class="index-freight-info-divider">|</span><br>
+              <i class="fas fa-clock index-icons"></i> <%= freight.estimated_time_arrival %> <span class="index-freight-info-divider">|</span><br>
+              <i class="fas fa-dollar-sign index-icons"></i> <%= freight.price %> <br>
+            </div>
           </p>
-          <a>
-            <%= link_to 'Learn more', freight_path(freight) %>
-          </a>
+          <div class="text-center">
+            <button class="btn btn-primary button-index text-center">
+              <a>
+                <%= link_to 'Learn more', freight_path(freight) %>
+              </a>
+            </button>
+          </div>
         </div>
       </div>
     <% end %>

@@ -3,7 +3,7 @@
     <div class="container latest-freigths my-5 d-flex justify-content-center align-items-center flex-column">
       <h2 class="latest"> <%= @freight.departure %> - <%= @freight.destination %> </h2>
       <div>
-        <p class="date-fr"> Date: <%= @freight.date %> </p>
+        <p class="date-fr"> Date: <%= @freight.date.strftime("%B %d") %> </p>
       </div>
     </div>
   </div>

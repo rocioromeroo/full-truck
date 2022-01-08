@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @freight = Freight.find(params[:freight_id])
     @review = Review.new(review_params)
@@ -6,7 +8,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to freight_path(@freight)
     else
-      render 'freight/show'
+      redirect_to 'users/sign_in'
+      # render 'freight/show'
     end
   end
 

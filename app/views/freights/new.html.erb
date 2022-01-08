@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container my-4">
   <div class="row">
     <div class="col-6 m-auto">
       <div class="flat-form">
@@ -11,8 +11,9 @@
               <%= f.input :date %>
               <%= f.label :cover_image %>
               <%= f.file_field :cover_image %>
-              <%= f.input :departure %>
-              <%= f.input :destination %>
+              <%= f.input :departure, label: 'City of departure'  %>
+              <%= f.input :destination, label: 'City of destination' %>
+              <%= f.input :description, as: :text %>
               <%= f.input :price %>
               <%= f.input :departure_time %>
               <%= f.input :estimated_time_arrival %>

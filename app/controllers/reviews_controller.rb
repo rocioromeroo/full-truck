@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def create
     @freight = Freight.find(params[:freight_id])
@@ -8,8 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to freight_path(@freight)
     else
-      redirect_to 'users/sign_in'
-      # render 'freight/show'
+      render 'freight/show'
     end
   end
 

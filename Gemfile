@@ -28,6 +28,8 @@ gem 'mini_magick', '~> 4.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'stripe', '~> 5.42'
+
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
 

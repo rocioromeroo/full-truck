@@ -19,6 +19,9 @@
               <%= f.label :gallery_images %>
               <%= f.file_field :gallery_images, multiple: true %>
               <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
+              <%= f.simple_fields_for :truck do |t| %>
+                <%= t.input :capacity %>
+              <% end %>
               <div class="col text-center">
                 <%= f.button :submit, class: "btn btn-primary" %>
               </div>

@@ -1,4 +1,6 @@
 class FreightsController < ApplicationController
+  before_action :authenticate_user!, only: :new
+
   def show
     @freight = Freight.find(params[:id])
     @review = Review.new
@@ -8,6 +10,7 @@ class FreightsController < ApplicationController
 
   def new
     @freight = Freight.new
+    @freight.build_truck
   end
 
   def create
@@ -43,6 +46,7 @@ class FreightsController < ApplicationController
       :truck_id,
       :cover_image,
       gallery_images: []
+      # truck_attributes: [:capacity]
     )
   end
 end

@@ -1,60 +1,197 @@
 <div class="container">
-  <div class="card mb-3 coo">
-    <div class="row g-0">
-      <div class="col-md-4">
-<%# Displays a placeholder 'cover image' if a user doesn't upload one %>
-          <% if @freight.cover_image.present? %>
-            <%= image_tag @freight.cover_image.variant(resize: "500x300") %>
-          <% else %>
-            <%= image_tag 'truck-cover.jpg' %>
-          <% end %>
-
+  <div class="row">
+    <div class="container latest-freigths my-5 d-flex justify-content-center align-items-center flex-column">
+      <h2 class="latest"> <%= @freight.departure %> - <%= @freight.destination %> </h2>
+      <div>
+        <p class="date-fr"> Date: <%= @freight.date.strftime("%B %d") %> </p>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Timeline</h5>
+    </div>
+  </div>
 
+  <div class="row card-deck my-3">
+    <div class="col col-left card d-flex justify-content-center p-3">
+      <%# Displays a placeholder 'cover image' if a user doesn't upload one %>
+      <% if @freight.cover_image.present? %>
+        <%= image_tag @freight.cover_image, class: "cover-image" %>
+      <% else %>
+        <%= image_tag 'truck-cover.jpg', class: "cover-image" %>
+      <% end %>
+    </div>
+    <div class="col col-right card">
+          <div class="container-timeline">
+            <div class="lines">
+              <div class="dot"></div>
+              <div class="line"></div>
+              <div class="dot"></div>
+            </div>
 
-          <p class="card-text">
-            <i class="fas fa-star"></i>
-            <img src="https://i.pravatar.cc/300" class="card-trip-user avatar-bordered" />
-          </p>
+            <div class="timeline-cards">
+              <div class="timeline-card">
+                <h4 class="departure-time"> <%= @freight.departure_time.strftime("%k:%M") %> </h4>
+                <p class="origin"> <%= @freight.departure %> </p>
+              </div>
+              <div class="timeline-card mid">
+                <h4 class="arrival-time"> <%= @freight.estimated_time_arrival %> </h4>
+                <p class="destination"> <%= @freight.destination %> </p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="row card-deck my-3">
+    <div class="col freight-about card">
+      <h2>About this freight</h2>
+      <% if @freight.description.present? %>
+        <p> <%= @freight.description %> </p>
+      <% else %>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus deserunt veritatis reiciendis exercitationem blanditiis culpa, quo ducimus fugiat est soluta explicabo distinctio consequuntur assumenda, expedita maiores tempora excepturi adipisci earum?</p>
+      <% end %>
+    </div>
+    <div class="col driver-info card">
+      <h2>Driver Info</h2>
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag 'profile.png', class:"profile-pic"%>
+        </div>
+        <div class="col-8">
+          <p><span class="span-info">Name:</span> John</p>
+          <p><span class="span-info">Rating:</span> stars</p>
+          <p><span class="span-info">Phone Number:</span> 555 555 5555</p>
         </div>
       </div>
     </div>
   </div>
 
-
-  <div class="cards p-4">
-    <% @freight.gallery_images.each do |image| %>
-      <div class="gallery-image-container">
-        <%= image_tag image, class: "gallery-image" %>
+  <div class="row slider">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <% if @freight.cover_image.present? %>
+            <%= image_tag @freight.cover_image, class: "d-block w-100" %>
+          <% else %>
+            <%= image_tag 'slider-placeholder.jpg', class: "d-block w-100"%>
+          <% end %>
+        </div>
+        <% @freight.gallery_images.each do |image| %>
+        <div class="carousel-item">
+          <%= image_tag image, class: "d-block w-100" %>
+        </div>
+        <% end %>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    <% end %>
+    </div>
+  </div>
 </div>
 
-
-<div class="text-center">
-  <%  if @reservations.present? %>
-  <h2 class="my-5" style="text-align: center;">Freight booked</h2>
-  <% else %>
-    <%= button_to "Book now", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary my-5" %>
-  <% end %>
-</div>
-<div class="text-center">
-  <% if @review.blank? %>
-    <p class= "my-5">Be the first to leave a review for <%= @freight.destination %></p>
-  <% end %>
-  <div class="my-5">
-    <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
-      <%= f.input :stars, collection: [['0', 'Very Unsatisfied'], ['1', 'Unsatisfied'], ['2', 'Neutral'], ['3', 'Satisfied'], ['3', 'Very Satisfied']], label_method: :second, value_method: :first %>
-      <%= f.input :comment, as: :text %>
-      <%= f.submit %>
+<div class="container">
+  <!-- Creates a reservation. If a reservation exist for current user a message will appear in-->
+  <div class="text-center">
+    <%  if @reservations.present? %>
+      <h2 class="my-5" style="text-align: center;">Freight booked</h2>
+    <% else %>
+      <%= button_to "Book now", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary btn-lg my-4 w-50" %>
     <% end %>
   </div>
-  <div class="my-5">
-    <% @reviews.each do |review| %>
-          <p class="pt-3" id="review-<%= review.id %>">- <%= review.comment %></p>
+
+  <div class="text-center">
+    <!-- Validates if there is a previous review and form for new review -->
+    <% if @reviews.blank? %>
+    <div class="card text-white bg-secondary">
+        <p class="my-2">Help us improve! <br> Be the first one to leave a review for <%= @freight.destination %></p>
         <% end %>
+    </div>
+    <div class="my-4 text-center">
+      <!-- Form to create a new review -->
+      <%= simple_form_for([ @freight, @review ], remote: true) do |f| %>
+        <%= f.input :stars, collection: [['1', 'Very Unsatisfied'], ['2', 'Unsatisfied'], ['3', 'Neutral'], ['4', 'Satisfied'], ['5', 'Very Satisfied']], label_method: :second, value_method: :first %>
+        <%= f.input :comment, as: :text %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- List previous reviews -->
+  <div class="row d-flex text-center justify-content-center">
+    <div class="container-fluid">
+      <!-- Review card -->
+      <% @reviews.each do |review| %>
+          <div class="card border-0 shadow rounded my-4">
+            <div class="card-body">
+              <!-- Review header -->
+              <div class="d-flex flex-start text-start">
+                <!-- User avatar -->
+                <img
+                class="rounded-circle shadow-1-strong me-3"
+                src="https://i.pravatar.cc/300"
+                alt="avatar"
+                width="60"
+                height="60"
+                />
+                <!-- User name and date of review -->
+                <div class="ml-5" style="text-align: left;">
+                  <h6 class="fw-bold text-primary mb-1">Lily Coleman </h6>
+                      <!-- Stars -->
+                  <h6 style="color: #F9F10C;">
+                    <% review.stars.times do |f|%>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                  </h6>
+                  <p class="text-muted small mb-0">
+                    Shared publicly - <%= review.created_at.strftime("%d %B %Y") %>
+                  </p>
+                </div>
+              </div>
+              <!-- Review user´s comments -->
+              <p class="mt-3 mb-4 pb-2 shadow-1-strong">
+                <%= review.comment %>
+              </p>
+              <!-- Like and comments -->
+              <div class="small d-flex">
+                <a href="#!" class="d-flex align-items-center ml-3">
+                  <i class="far fa-thumbs-up mx-2"></i>
+                  <p class="mb-0">Like</p>
+                </a>
+                <a href="#!" class="d-flex align-items-center ml-3">
+                  <i class="far fa-thumbs-up mx-2"></i>
+                  <p class="mb-0">Dislike</p>
+                </a>
+              </div>
+            </div>
+            <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+              <div class="d-flex flex-start w-100">
+                <img
+                  class="rounded-circle shadow-1-strong mx-3"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).jpg"
+                  alt="avatar"
+                  width="40"
+                  height="40"
+                />
+                <div class="form-outline w-100">
+                  <textarea
+                    class="form-control"
+                    id="textAreaExample"
+                    rows="4"
+                    style="background: #fff;"
+                    placeholder="Was it helpful? Make a comment, and start a chat with Lily"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="float-end mt-2 pt-1">
+                <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -8,7 +8,9 @@
 puts "Starting seed file"
 
 puts "Desroying previous info..."
+Reservation.destroy_all
 Freight.destroy_all
+Review.destroy_all
 Truck.destroy_all
 User.destroy_all
 

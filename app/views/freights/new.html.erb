@@ -5,72 +5,60 @@
           <div class="left-content">
             <h3 class="title text-center">Welcome <br> Full-Trucker</h3>
             <p class="text text-justify my-4">
-              Full Truck brings drivers and customers together to make freight shipping
-              easier.
-              <br>
-              <br>
-              You, Full-Truckers, give us the ability to provide in-depth,
+              Full-Truckers, give us the ability to provide in-depth,
               expert knowledge of individual geographic trades and markets.
-              <br>
-              <br>
-              Full-truck is a great way to put a stop to empty freights and
-              start making money by getting your containers full in every journey.
             </p>
 
             <h3 class="sub-title text-justify">Let's create your next cargo.</h3>
             <p class="text text-justify">
               Here's what you need to created a new shipment:
-              <ol class="text text-justify">
+              <ol class="text list-unstyled">
                 <li class="font-weight-bold">Make sure you registered your Truck</li>
                 If you haven't already created a Truck, you can register one <a href="/trucks/new"> here! </a>
-              <li class="font-weight-bold">Tell us about the new shipment</li>
-                Complete the form with information about the shipment. <br>Remember
-                that you will be asked for detailed information about the shipment.
+                <li class="font-weight-bold">Tell us about the new shipment</li>
+                Complete the required information.<br>Remember that you will be
+                asked for detailed information about the shipment.
                 <br>You can also add images to the form to be displayed on your
                 freight.
-                <br>Customer are more likely to get a Freights with you if your have
-                pictures to show.
-            </ol>
-            </p>
-
-            <ul>
-              <li>A valid driver's licence.</li>
-              <li>A license to carry shipments</li>
-              <li>Be at least 21 years of age</li>
-              <li>Private Hire Insurance allowing you to transport goods.</li>
-              <li>Bank Statement for the bank account that will be used to receive</li>
-              <li>payments from Full Truck, needs to be under your name or a business
-              <li>which you are an owner of.</li>
-              <li>Driver profile photo</li>
-              <li>Truck photos</li>
-            </ul>
+                <br> <strong class="text-muted ">Customer are more likely to pick
+                a Freight if it has pictures to show.</strong>
+                <li class="font-weight-bold">Submit the following information to
+                support@fulltruck.co</li>
+                  <ul>
+                    <li>A valid driver's licence.</li>
+                    <li>A license to carry shipments</li>
+                    <li>Private Hire Insurance allowing you to transport goods.</li>
+                    <li>Bank account that will be used to receive payments from Full Truck.</li>
+                  </ul>
+                </li>
+              </ol>
             </p>
           </div>
           <div class="right-content">
               <h3 class="form-title">New Shipment</h3>
-              <form class="form-horizontal">
+              <div class="form-horizontal">
                   <div class="form-group">
-                  <%= simple_form_for @freight do |f| %>
-                    <%= f.input :date %>
-                    <%= f.label :cover_image %>
-                    <%= f.file_field :cover_image %>
-                    <%= f.input :departure, label: 'City of departure'  %>
-                    <%= f.input :destination, label: 'City of destination' %>
-                    <%= f.input :description, as: :text %>
-                    <%= f.input :price, input_html: { min: '0', step: 'any' } %>
-                    <%= f.input :departure_time %>
-                    <%= f.input :estimated_time_arrival %>
-                    <%= f.label :gallery_images %>
-                    <%= f.file_field :gallery_images, multiple: true %>
-                    <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
-                    <%= f.simple_fields_for :truck do |t| %>
-                      <%= t.input :capacity %>
-                      <% end %>
-                  <%= f.button :submit, class: "btn signin" %>
-                  <% end %>
+                    <%= simple_form_for @freight do |f| %>
+                      <%= f.input :date %>
+                      <%= f.label :cover_image %>
+                      <%= f.file_field :cover_image %>
+                      <%= f.input :departure, label: 'City of departure'  %>
+                      <%= f.input :destination, label: 'City of destination' %>
+                      <%= f.input :description, as: :text %>
+                      <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+                      <%= f.input :departure_time %>
+                      <%= f.input :estimated_time_arrival %>
+                      <%= f.label :gallery_images %>
+                      <%= f.file_field :gallery_images, multiple: true %>
+                      <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
+                      <%= f.simple_fields_for :truck do |t| %>
+                        <% end %>
+                    <%= f.button :submit, class: "btn signin" %>
+                    <% end %>
+                  </div>
+              </div>
           </div>
-      </div>
+        </div>
+    </div>
   </div>
-</div>
-</div>
 </div>

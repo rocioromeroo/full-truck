@@ -1,34 +1,64 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-6 m-auto">
-      <div class="flat-form">
-        <div class="col text-center">
-          <h1>New Shipment</h1>
-        </div>
-        <div class="mt-3">
-          <div class="mt-3">
-            <%= simple_form_for @freight do |f| %>
-              <%= f.input :date %>
-              <%= f.label :cover_image %>
-              <%= f.file_field :cover_image %>
-              <%= f.input :departure %>
-              <%= f.input :destination %>
-              <%= f.input :price %>
-              <%= f.input :departure_time %>
-              <%= f.input :estimated_time_arrival %>
-              <%= f.label :gallery_images %>
-              <%= f.file_field :gallery_images, multiple: true %>
-              <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
-              <%= f.simple_fields_for :truck do |t| %>
-                <%= t.input :capacity %>
-              <% end %>
-              <div class="col text-center">
-                <%= f.button :submit, class: "btn btn-primary" %>
+<div class="form-bg">
+  <div class="container d-flex p-2">
+    <div class="row">
+        <div class="form-container">
+          <div class="left-content">
+            <h3 class="title text-center">Welcome <br> Full-Trucker</h3>
+            <p class="text text-justify my-4">
+              Full-Truckers, give us the ability to provide in-depth,
+              expert knowledge of individual geographic trades and markets.
+            </p>
+
+            <h3 class="sub-title text-justify">Let's create your next cargo.</h3>
+            <p class="text text-justify">
+              Here's what you need to created a new shipment:
+              <ol class="text list-unstyled">
+                <li class="font-weight-bold">Make sure you registered your Truck</li>
+                If you haven't already created a Truck, you can register one <a href="/trucks/new"> here! </a>
+                <li class="font-weight-bold">Tell us about the new shipment</li>
+                Complete the required information.<br>Remember that you will be
+                asked for detailed information about the shipment.
+                <br>You can also add images to the form to be displayed on your
+                freight.
+                <br> <strong class="text-muted ">Customer are more likely to pick
+                a Freight if it has pictures to show.</strong>
+                <li class="font-weight-bold">Submit the following information to
+                support@fulltruck.co</li>
+                  <ul>
+                    <li>A valid driver's licence.</li>
+                    <li>A license to carry shipments</li>
+                    <li>Private Hire Insurance allowing you to transport goods.</li>
+                    <li>Bank account that will be used to receive payments from Full Truck.</li>
+                  </ul>
+                </li>
+              </ol>
+            </p>
+          </div>
+          <div class="right-content">
+              <h3 class="form-title">New Shipment</h3>
+              <div class="form-horizontal">
+                  <div class="form-group">
+                    <%= simple_form_for @freight do |f| %>
+                      <%= f.input :date %>
+                      <%= f.label :cover_image %>
+                      <%= f.file_field :cover_image %>
+                      <%= f.input :departure, label: 'City of departure'  %>
+                      <%= f.input :destination, label: 'City of destination' %>
+                      <%= f.input :description, as: :text %>
+                      <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+                      <%= f.input :departure_time %>
+                      <%= f.input :estimated_time_arrival %>
+                      <%= f.label :gallery_images %>
+                      <%= f.file_field :gallery_images, multiple: true %>
+                      <%= f.association :truck, collection: current_user.trucks, label_method: :label_text %>
+                      <%= f.simple_fields_for :truck do |t| %>
+                        <% end %>
+                    <%= f.button :submit, class: "btn signin" %>
+                    <% end %>
+                  </div>
               </div>
-            <% end %>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

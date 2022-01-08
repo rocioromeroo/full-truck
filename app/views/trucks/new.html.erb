@@ -1,16 +1,45 @@
-<div class="container">
-  <div class="card border-0 shadow rounded my-4">
-    <h5 class="card-header">New Truck</h5>
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= simple_form_for @truck do |f| %>
-          <%= f.input :capacity %>
-          <%= f.input :model %>
-          <div class="col text-center">
-            <%= f.button :submit, class: "btn btn-primary" %>
+<div class="form-bg">
+  <div class="container d-flex p-2">
+    <div class="row">
+        <div class="form-container">
+          <div class="left-content">
+            <h3 class="title text-center">Welcome <br> Full-Trucker</h3>
+            <p class="text text-justify my-4">
+              Full Truck brings drivers and customers together to make freight shipping
+              easier.
+              <br>
+              <br>
+              Full-truck is a great way to put a stop to empty freights and
+              start making money by getting your containers full in every journey.
+            </p>
+
+            <h3 class="sub-title text-justify">Let's get you started!</h3>
+            <p class="text text-justify">
+              First things first, we  need to create a truck to get you rolling!
+              To do so, you just need to provide the following information.
+              <ol class="text text-justify">
+                <li class="font-weight-bold">Capacity</li>
+                How much load you can transport. Remember that the Load is
+                measured in tons.
+                <li class="font-weight-bold">Cargo Truck Model</li>
+                Which is the brand and model. This info is key to determine the
+                rigth the rigth freight.
+              </ol>
+            </p>
           </div>
-        <% end %>
-      </h5>
+          <div class="right-content">
+              <h3 class="form-title">New Truck</h3>
+              <div class="form-horizontal">
+                  <div class="form-group">
+                    <%= simple_form_for @truck do |f| %>
+                      <%= f.input :capacity, as: :text %>
+                      <%= f.input :model, as: :text %>
+                        <%= f.button :submit, class: "btn signin" %>
+                    <% end %>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

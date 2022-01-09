@@ -1,0 +1,95 @@
+.form-container{
+    background-color: #fff;
+    font-size: 0;
+    box-shadow: 0 0 25px -15px rgba(0,0,0,0.3);
+}
+.form-container .left-content{
+    background-color: #2E323B;
+    width: 40%;
+    height: 100%;
+    padding: 30px 10px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 18px;
+}
+.form-container .left-content .title{
+    color: #3075C6;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.form-container .left-content .sub-title{
+    color: #84DFFF;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 25px;
+}
+.form-container .left-content .text{
+    color: #fff;
+    font-size: 14px;
+}
+.form-container .left-content ul li{
+    color: #fff;
+    font-size: 14px;
+}
+.form-container .left-content li{
+    color: hsl(224, 70%, 71%);
+    font-size: 14px;
+    margin-top: 35px;
+}
+.form-container .right-content{
+    text-align: center;
+    width: 60%;
+    padding: 30px 35px;
+    display: inline-block;
+}
+.form-container .right-content .form-title{
+    color: #888;
+    font-size: 40px;
+    font-weight: 400;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0 0 2px;
+    margin: 0 0 30px;
+    border-bottom: 2px solid #3075C6;
+}
+.form-container .right-content .form-horizontal {
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 15px;
+}
+.form-container .form-horizontal .form-group{ margin: 0 0 20px; }
+.form-container .form-horizontal .form-group:nth-of-type(2){ margin-bottom: 35px; }
+.form-container .form-horizontal .form-control{
+    color: #888;
+    background: #f9f9f9;
+    font-weight: 400;
+    letter-spacing: 1px;
+    height: 40px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+}
+.form-container .form-horizontal .form-control:focus{ box-shadow: 0 0 5px #84DFFF; }
+.form-container .form-horizontal .signin{
+    color: #fff;
+    background: #3075C6;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    width: 100%;
+    padding: 9px 11px;
+    margin: 0 0 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+.form-container .form-horizontal .btn:hover,
+.form-container .form-horizontal .btn:focus{
+    box-shadow: 0 0 10px #84DFFF;
+    outline: none;
+}

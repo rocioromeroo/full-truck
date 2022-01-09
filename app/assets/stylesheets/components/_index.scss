@@ -1,5 +1,9 @@
 // Import your components CSS files here.
-@import "alert";
 @import "avatar";
 @import "navbar";
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
+@import "devise/registrations/new";
+@import "search_form";
+@import "search_form_mobile";
+@import "footer";
+@import "devise/registrations/newsessions";
+@import "alert";

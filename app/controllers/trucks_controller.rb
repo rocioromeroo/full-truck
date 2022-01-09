@@ -9,7 +9,7 @@ class TrucksController < ApplicationController
     @truck.user = @user
     @truck.save!
     flash[:alert] = "Truck registered successfully"
-    redirect_to root_path
+    redirect_to new_freight_url
   end
 
   def index

@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   # get 'success', to: 'pages#success'
   get 'success', to: 'pages#success' do
-    @freight = Freight.find(params[:id])
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @customer = Stripe::Customer.retrieve(session.customer)
   end

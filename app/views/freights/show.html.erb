@@ -97,7 +97,8 @@
     <%  if @reservations.present? %>
       <h2 class="my-5" style="text-align: center;">Freight booked</h2>
     <% else %>
-      <%= button_to "Book now - $#{@freight.price}", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary btn-lg my-4 w-50" %>
+      <%= button_to "Book now - $#{@freight.price}", checkout_create_path, params: {id: @freight.id}, remote: true, class:"btn btn-outline-secondary btn-lg my-4 w-50" %>
+      <!-- <%= button_to "Book now - $#{@freight.price}", freight_reservations_path(@freight.id), method: :post, class:"btn btn-outline-secondary btn-lg my-4 w-50" %> -->
     <% end %>
   </div>
 

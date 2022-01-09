@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :trucks
+  post "checkout/create", to: "checkout#create"
 
   post "freights", to: "freights#index"
 

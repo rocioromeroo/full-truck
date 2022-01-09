@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: @freight.departure,
-        amount: (@freight.price + "00").to_i,
+        amount: @freight.price.to_i * 100,
         currency: "usd",
         quantity: 1,
       }],

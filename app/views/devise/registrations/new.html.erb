@@ -1,13 +1,16 @@
 <div class="container contact-container my-5">
-  <section class="vh-50 gradient-custom">
-    <div class="container py-5 h-80">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-white text-black" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
-              <div class="mb-md-5 mt-md-4 pb-5">
+<section class="vh-50 gradient-custom">
+  <div class="container py-5 h-80">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-white text-black" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+          <div class="mb-md-5 mt-md-4 pb-5">
 
-                 <h2>Crear cuenta</h2>
+     <h2>Crear cuenta</h2>
+
+
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -30,10 +33,6 @@
     <%= f.button :submit, "Registrarme" %>
   </div>
 <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
+</divi>

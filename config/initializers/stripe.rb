@@ -1,1 +1,8 @@
-Stripe.api_key = 'sk_test_51JmJ3RD6Vb0ApkSf58hW1C8S00Z4j7wjzyegzaoJjAD1W1GRgbqIJGGkdNaVqq5T5bIAlnNfIOqJQwl1dpUsxXAx00q3fAASvU'
+# Stripe.api_key = Rails.application.credentials.stripe[:secret]
+
+
+Rails.configuration.stripe = {
+  :publishable_key => Rails.application.credentials.stripe[:stripe_publishable_key],
+  :secret_key => Rails.application.credentials.stripe[:stripe_secret_key]
+}
+Stripe.api_key = Rails.application.credentials.stripe[:stripe_secret_key]

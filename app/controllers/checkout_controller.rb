@@ -1,7 +1,7 @@
 class CheckoutController < ApplicationController
   def create
     @freight = Freight.find(params[:id])
-    domain = 'http://localhost:3000'
+    domain = 'http://fulltruck.co'
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{

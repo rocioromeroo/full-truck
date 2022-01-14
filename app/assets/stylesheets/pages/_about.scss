@@ -1,0 +1,39 @@
+.about-container{
+  background-color: white;
+  .about{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .image{
+    box-shadow: 3px 5px 4px rgba(0,0,0,0.3);;
+  }
+  h3{
+    color: black;
+  }
+}
+
+.about-boxes{
+  padding-top: 8%;
+  padding-bottom: 8%;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-btn a:hover{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.contact-btn{
+  position: relative;
+  border-radius: 8px;
+  width: 40%;
+  background-color: #3075C6;
+  padding: 1%;
+  color: white;
+}

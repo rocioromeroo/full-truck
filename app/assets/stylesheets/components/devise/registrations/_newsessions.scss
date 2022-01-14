@@ -16,58 +16,6 @@ h1 { color: #040404; }
 
 h3 { color: #ffffff; }
 
-.form {
-	width: 300px;
-	margin: 4em auto;
-	padding: 3em 2em 2em 2em;
-	background: #e4e4e4;
-	border: 1px solid #ffffff;
-	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
-
-}
-
-.group {
-	position: relative;
-	margin-bottom: 35px;
-}
-
-input {
-	font-size: 10px;
-	padding: 30px 30px 30px 5px;
-	background: #ffffff;
-	color: #636363;
-	width: 100%;
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid #757575;
-   text-align: center;
-   align-items: center;
-}
-
-input:focus { outline: none; }
-
-
-/* Label */
-
-.label {
-	color: rgb(14, 13, 13);
-	font-size: 18px;
-	font-weight: normal;
-	position: absolute;
-	pointer-events: none;
-	left: 5px;
-	top: 10px;
-	transition: all 0.2s ease;
-}
-/* active */
-
-.input:focus ~ label, input.used ~ label {
-	top: -20px;
-  transform: scale(.75); left: -2px;
-	/* font-size: 14px; */
-	color: #c0b5b5;
-}
-
 
 /* Underline */
 
